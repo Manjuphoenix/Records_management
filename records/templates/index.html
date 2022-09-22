@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Records</title>
+</head>
+<style>
+    .fixed-div{
+        position: fixed;
+   bottom: 0;
+   left: 0;
+   background: steelblue;
+   padding: 6px;
+   color: #fff;
+   font-size: 1em;
+    }
+</style>
+<script>
+    function finalurl() {
+    var url = new URL(window.location.href);
+    var search_params = url.searchParams;
+    search_params.set('ordering', document.getElementById("sort-list").value);
+    url.search = search_params.toString();
+    var new_url = url.toString();
+    return new_url
+  }
+</script>
+<body style="background: linear-gradient(to right, #0F3443, green); color: white">
+{% include 'navbar_author.html' %}
+<table>
+    <tbody>
+    <tr>
+        <td><div class="fixed-div">
+    <a style="text-decoration: none; color: white" href="http://wgbis.ces.iisc.ernet.in/energy_database/entry">Enter records</a>
+</div></td>
+        <td><div style="padding: 2% 12%">
+    {% for instance in records %}
+    {% if instance.published %}
+    <p><strong>ID: </strong>{{ instance.id}} <br> <strong>Title: </strong>{{ instance.title}} <br> <strong>Author: </strong> {{instance.author}}
+        <span style="margin-left: 10px"></span> <strong>Editor: </strong> {{instance.editor}}<span style="margin-left: 10px"></span>
+        <strong>Year: </strong> {{instance.year}} <br>
+        <strong>Publisher: </strong> {{instance.publisher}} <br>
+        <strong>Source: </strong> {{instance.source}} <br>
+        <strong>Reference: </strong> {{instance.reference}} <br>
+        <strong>Subject: </strong> {{instance.subject}} <br>
+        <strong>Keywords: </strong> {{instance.keywords}} <br>
+        <strong>Abstract: </strong> {{instance.abstarct}} <br>
+        <strong>Location: </strong> {{instance.loaction}} <br>
+        <strong>Ref</strong> {{instance.ref}} <br>
+        <strong>Ref1</strong> {{instance.ref1}}</p>
+        <hr size="10" style="width: 100%; color: red">
+    {% endif %}
+{% endfor %}
+{#{% endif %}#}
+
+        <div class="pagination">
+    <span class="step-links">
+        {% if records.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ records.previous_page_number }}">previous</a>
+        {% endif %}
+        <span class="current">
+            Page {{ records.number }} of {{ records.paginator.num_pages }}.
+        </span>
+
+        {% if records.has_next %}
+            <a class="ml-3" href="?page={{ records.next_page_number }}&q={{ query|urlencode }}">Next</a>
+            <a href="/author/?q={{ query }}&?page={{ records.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+
+</div></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
+

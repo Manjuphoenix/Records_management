@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <title>{{ object_list.title }}</title>
+</head>
+<body>
+<p><strong>ID: </strong>{{ instance.id}} <br> <strong>Title: </strong>{{ instance.title}} <br> <strong>Author: </strong> {{instance.author}}
+        <span style="margin-left: 10px"></span> <strong>Editor: </strong> {{instance.editor}}<span style="margin-left: 10px"></span>
+        <strong>Year: </strong> {{instance.year}} <br>
+        <strong>Publisher: </strong> {{instance.publisher}} <br>
+        <strong>Source: </strong> {{instance.source}} <br>
+        <strong>Reference: </strong> {{instance.reference}} <br>
+        <strong>Subject: </strong> {{instance.subject}} <br>
+        <strong>Keywords: </strong> {{instance.keywords}} <br>
+        <strong>Abstract: </strong> {{instance.abstarct}} <br>
+        <strong>Location: </strong> {{instance.loaction}} <br>
+        <strong>Ref</strong> {{instance.ref}} <br>
+        <strong>Ref1</strong> {{instance.ref1}}</p>
+</body>
+</html>

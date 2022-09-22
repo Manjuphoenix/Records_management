@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Records</title>
+</head>
+<body>
+{% include 'navbar.html' %}
+<div style="padding-left: 5%">
+    <h1>Search Results</h1>
+
+<ul>
+  {% for instance in object_list %}
+    <p><strong>ID: </strong>{{ instance.id}} <br> <strong>Title: </strong>{{ instance.title}} <br> <strong>Author: </strong> {{instance.author}}
+        <span style="margin-left: 10px"></span> <strong>Editor: </strong> {{instance.editor}}<span style="margin-left: 10px"></span>
+        <strong>Year: </strong> {{instance.year}} <br>
+        <strong>Publisher: </strong> {{instance.publisher}} <br>
+        <strong>Source: </strong> {{instance.source}} <br>
+        <strong>Reference: </strong> {{instance.reference}} <br>
+        <strong>Subject: </strong> {{instance.subject}} <br>
+        <strong>Keywords: </strong> {{instance.keywords}} <br>
+        <strong>Abstract: </strong> {{instance.abstarct}} <br>
+        <strong>Location: </strong> {{instance.loaction}} <br>
+        <strong>Ref</strong> {{instance.ref}} <br>
+        <strong>Ref1</strong> {{instance.ref1}}</p>
+      <hr size="10" style="width: 100%; color: red">
+  {% endfor %}
+</ul>
+</div>
+{##}
+{#<div class="pagination">#}
+{#    <span class="step-links">#}
+{#        {% if page_obj.has_previous %}#}
+{#            <a href="?page=1">&laquo; first</a>#}
+{#            <a href="?page={{ page_obj.previous_page_number }}">previous</a>#}
+{#        {% endif %}#}
+{##}
+{#        <span class="current">#}
+{#            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.#}
+{#        </span>#}
+{##}
+{#        {% if page_obj.has_next %}#}
+{#            <a href="?page={{ page_obj.next_page_number }}">next</a>#}
+{#            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>#}
+{#        {% endif %}#}
+{#    </span>#}
+{#</div>#}
+</body>
+</html>
